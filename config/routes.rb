@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :shops do
-    member do
-    get 'top'
+    collection do
+      get 'top'
     end
   end
+  root "shops#top"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
