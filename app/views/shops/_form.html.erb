@@ -1,7 +1,43 @@
-<%= form_with model: user, local: true do |form| %>
+<%= form_with model: customer, local: true do |form| %>
+<% if customer.errors.any? %>
+    <div class="alert alert-danger">
+      <p><b><%= customer.errors.count %>件のエラーがあります</b></p>
+
+      <ul>
+      <% customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
-    <%= form.label :nick_name %><br>
-    <%= form.text_field :nick_name, class: "form-control" %>
+    <%= form.label :name %><br>
+    <%= form.string_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description %><br>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :image %><br>
+    <%= form.text_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :budget_min, :budget_max %><br>
+    <%= form.integer_field :budget_min, :budget_max class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :genre_id %><br>
+    <%= form.integer_field :genre_id, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :user_id %><br>
+    <%= form.integer_field :user_id, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :review_avg %><br>
+    <%= form.integer_field :review_avg, class: "form-control" %>
   </div>
   <%= form.submit class: "btn btn-default" %>
 <% end %>
