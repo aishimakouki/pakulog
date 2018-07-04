@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180621072205) do
+ActiveRecord::Schema.define(version: 20180704112033) do
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20180621072205) do
     t.string "name"
     t.text "description"
     t.text "image"
-    t.integer "budget_min"
-    t.integer "budget_max"
-    t.integer "genre_id"
-    t.integer "area_id"
-    t.integer "user_id"
-    t.integer "review_avg"
+    t.integer "budget_min", default: 0
+    t.integer "budget_max", default: 0
+    t.integer "genre_id", default: 0
+    t.integer "area_id", default: 0
+    t.integer "user_id", default: 0
+    t.integer "review_avg", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
