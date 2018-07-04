@@ -1,7 +1,48 @@
-<%= form_with model: user, local: true do |form| %>
+<%= form_with model: shop, local: true do |form| %>
+<% if shop.errors.any? %>
+    <div class="alert alert-danger">
+      <p><b><%= shop.errors.count %>件のエラーがあります</b></p>
+
+      <ul>
+      <% shop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
-    <%= form.label :nick_name %><br>
-    <%= form.text_field :nick_name, class: "form-control" %>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= form.label :description %><br>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :image %><br>
+    <%= image_tag shop.image if shop.persisted? %>
+    <%= form.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :budget_min %><br>
+    <%= form.number_field :budget_min, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :budget_max %><br>
+    <%= form.number_field :budget_max, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :genre_id %><br>
+    <%= form.collection_select :genre_id, Genre.all, :id, :name , { include_blank: "ジャンルを選択してください" },  { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :area_id %><br>
+    <%= form.collection_select :area_id, Area.all, :id, :name , { include_blank: "エリアを選択してください" },  { class: "form-control" } %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id, class: "form-control" %>
+
   <%= form.submit class: "btn btn-default" %>
 <% end %>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>レストラン詳細</h1>
+    <dl>
+      <dt>店名</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.name %></dd>
+      <dt>詳細</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.description %></dd>
+      <dt>画像</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= image_tag @shop.image %></dd>
+      <dt>予算下限</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.budget_min %></dd>
+      <dt>予算上限</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.budget_max %></dd>
+      <dt>ジャンル</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.genre.name %></dd>
+      <dt>エリア</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.area.name%></dd>
+      <dt>レビュー</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= @shop.review_avg %></dd>
+    </dl>
+    <%= link_to '編集', edit_shop_path(@shop), class: "btn btn-default" %>
+    <%= link_to '戻る', top_shops_path, class: "btn btn-default" %>
+  </div>
+</div>
