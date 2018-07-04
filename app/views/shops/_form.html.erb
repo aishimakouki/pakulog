@@ -21,6 +21,7 @@
   </div>
   <div class="form-group">
     <%= form.label :image %><br>
+    <%= image_tag shop.image if shop.persisted? %>
     <%= form.file_field :image, class: "form-control" %>
   </div>
   <div class="form-group">
