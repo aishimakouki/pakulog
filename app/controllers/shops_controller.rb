@@ -35,9 +35,10 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop = Shop.find(params[:id])
-    @shop.destory
-    redirect_to @shop
+    @shop.destroy
+    redirect_to shops_path
   end
+
 
   private
 
@@ -45,4 +46,5 @@ class ShopsController < ApplicationController
     params.require(:shop).permit(:name, :description, :image, :budget_min,
       :budget_max, :genre_id, :area_id, :user_id, :review_avg)
   end
+
 end
