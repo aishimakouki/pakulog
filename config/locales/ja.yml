@@ -1,6 +1,20 @@
 ---
 ja:
   activerecord:
+    models:
+      shop: "レストラン"
+    attributes:
+      shop:
+        name: "店名"
+        description: "詳細"
+        image: "画像"
+        budget_min: "予算下限"
+        budget_max: "予算上限"
+        genre_id: "ジャンル"
+        area_id: "エリア"
+        user_id: "ユーザー"
+        review_avg: "レビュー平均"
+
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
