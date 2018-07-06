@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>レストラン一覧</h1>
+  </div>
+  <div class="col-lg-6">
+    <p>レストラン情報が表示されます。</p>
+  </div>
+  <div class="col-lg-6">
+    <%= link_to 'レストラン登録', new_shop_path, class: "btn btn-default pull-right" %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th>店名</th>
+      <th>詳細</th>
+      <th>画像</th>
+      <th>予算下限</th>
+      <th>予算上限</th>
+      <th>ジャンル</th>
+      <th>エリア</th>
+      <th>ユーザー</th>
+      <th>レビュー平均</th>
+    </thead>
+    <tbody>
+      <% @shops.each do |shop| %>
+        <tr>
+          <td><%= shop.name %></td>
+          <td><%= shop.description %></td>
+          <td><%= shop.image %></td>
+          <td><%= shop.budget_min %></td>
+          <td><%= shop.budget_max%></td>
+          <td><%= shop.genre_id %></td>
+          <td><%= shop.area_id %></td>
+          <td><%= shop.user_id %></td>
+          <td><%= shop.review_avg%></td>
+          <td><%= link_to '詳細', shop, class: "btn btn-default btn-xs" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
