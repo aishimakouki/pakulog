@@ -10,27 +10,25 @@
   </div>
   <table class="table table-striped">
     <thead>
-      <th>店名</th>
-      <th>詳細</th>
-      <th>画像</th>
-      <th>予算下限</th>
-      <th>予算上限</th>
-      <th>ジャンル</th>
-      <th>エリア</th>
-      <th>ユーザー</th>
-      <th>レビュー平均</th>
+      <td>店名</td>
+      <td>詳細</td>
+      <td>画像</td>
+      <td>予算下限</td>
+      <td>予算上限</td>
+      <td>ジャンル</td>
+      <td>エリア</td>
+      <td>レビュー平均</td>
     </thead>
     <tbody>
       <% @shops.each do |shop| %>
         <tr>
           <td><%= shop.name %></td>
-          <td><%= shop.description %></td>
-          <td><%= shop.image %></td>
+          <td><%= truncate(shop.description, length: 50) %></td>
+          <td><%= image_tag shop.image %></td>
           <td><%= shop.budget_min %></td>
           <td><%= shop.budget_max%></td>
-          <td><%= shop.genre_id %></td>
-          <td><%= shop.area_id %></td>
-          <td><%= shop.user_id %></td>
+          <td><%= shop.genre.name %></td>
+          <td><%= shop.area.name %></td>
           <td><%= shop.review_avg%></td>
           <td><%= link_to '詳細', shop, class: "btn btn-default btn-xs" %></td>
         </tr>
