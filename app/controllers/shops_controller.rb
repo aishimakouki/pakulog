@@ -39,6 +39,10 @@ class ShopsController < ApplicationController
     redirect_to shops_path
   end
 
+  def index
+    @shops = Shop.all
+  end
+
 
   private
 

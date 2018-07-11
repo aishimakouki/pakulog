@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1>レストラン一覧</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <p>レストラン情報が表示されます。</p>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <%= link_to 'レストラン登録', new_shop_path, class: "btn btn-info pull-right" %>
+  </div>
+</div>
+<% @shops.each do |shop| %>
+  <hr>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-4">
+        <%= image_tag shop.image, class: "img-responsive img-thumbnail" %>
+      </div>
+      <div class="col-md-8">
+        <h2><%= link_to shop.name, shop_path(shop) %></h2>
+        <div class="shops-index-description">
+          <div>詳細: <%= truncate(shop.description, length: 50) %></div>
+          <div>評価: <%= shop.review_avg %></div>
+          <div>予算: <%= shop.budget_min %> 〜 <%= shop.budget_max %> (円)</div>
+          <div>ジャンル: <%= shop.genre.name %></div>
+          <div>エリア: <%= shop.area.name %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
