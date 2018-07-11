@@ -1,38 +1,33 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-md-10">
     <h1>レストラン一覧</h1>
   </div>
-  <div class="col-lg-6">
+</div>
+<div class="row">
+  <div class="col-md-10">
     <p>レストラン情報が表示されます。</p>
   </div>
-  <div class="col-lg-6">
-    <%= link_to 'レストラン登録', new_shop_path, class: "btn btn-default pull-right" %>
+  <div class="col-md-10">
+    <%= link_to 'レストラン登録', new_shop_path, class: "btn btn-info pull-right" %>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <td>店名</td>
-      <td>詳細</td>
-      <td>画像</td>
-      <td>予算下限</td>
-      <td>予算上限</td>
-      <td>ジャンル</td>
-      <td>エリア</td>
-      <td>レビュー平均</td>
-    </thead>
-    <tbody>
-      <% @shops.each do |shop| %>
-        <tr>
-          <td><%= shop.name %></td>
-          <td><%= truncate(shop.description, length: 50) %></td>
-          <td><%= image_tag shop.image %></td>
-          <td><%= shop.budget_min %></td>
-          <td><%= shop.budget_max%></td>
-          <td><%= shop.genre.name %></td>
-          <td><%= shop.area.name %></td>
-          <td><%= shop.review_avg%></td>
-          <td><%= link_to '詳細', shop, class: "btn btn-default btn-xs" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>
+<% @shops.each do |shop| %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-4">
+        <%= image_tag shop.image, class: "img-responsive img-thumbnail" %>
+      </div>
+      <div class="col-md-8">
+        <h2><%= link_to shop.name, shop_path(shop) %></h2>
+        <div class="shops-index-description">
+          <div>詳細: <%= truncate(shop.description, length: 50) %></div>
+          <div>評価: <%= shop.review_avg %></div>
+          <div>予算: <%= shop.budget_min %> 〜 <%= shop.budget_max %> (円)</div>
+          <div>ジャンル: <%= shop.genre.name %></div>
+          <div>エリア: <%= shop.area.name %></div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+<% end %>
