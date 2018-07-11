@@ -1,17 +1,18 @@
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-10 col-md-offset-1">
     <h1>レストラン一覧</h1>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-10 col-md-offset-1">
     <p>レストラン情報が表示されます。</p>
   </div>
-  <div class="col-md-10">
+  <div class="col-md-10 col-md-offset-1">
     <%= link_to 'レストラン登録', new_shop_path, class: "btn btn-info pull-right" %>
   </div>
 </div>
 <% @shops.each do |shop| %>
+  <hr>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="col-md-4">
@@ -27,7 +28,6 @@
           <div>エリア: <%= shop.area.name %></div>
         </div>
       </div>
-      <hr>
     </div>
   </div>
 <% end %>
