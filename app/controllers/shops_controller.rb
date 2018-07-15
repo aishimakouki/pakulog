@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
   def top
+     @q = Shop.ransack(params[:q])
+     @shops = @q.result.page(params[:page])
   end
 
   def new
@@ -40,7 +42,8 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result.page(params[:page])
   end
 
 
