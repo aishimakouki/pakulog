@@ -2,6 +2,7 @@ class Shop < ApplicationRecord
   belongs_to :genre
   belongs_to :area
   belongs_to :user
+  has_many :reviews
 
   mount_uploader :image, ImageUploader
   validates :name, presence: true

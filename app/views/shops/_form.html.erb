@@ -1,5 +1,5 @@
 <%= form_with model: shop, local: true do |form| %>
-<% if shop.errors.any? %>
+  <% if shop.errors.any? %>
     <div class="alert alert-danger">
       <p><b><%= shop.errors.count %>件のエラーがあります</b></p>
 
