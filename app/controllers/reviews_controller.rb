@@ -6,12 +6,18 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.save
-    redirect_to @review
+    if @review.save
+      redirect_to [@review.shop, @review]
+    else
+      #@reviewに紐ずくshopを抽出
+      @shop = @review.shop
+      render :new
+    end
   end
 
   def show
-
+    @review = Review.find(params[:id])
+    @shop = @review.shop
   end
 
 
@@ -19,6 +25,6 @@ class ReviewsController < ApplicationController
 private
 
   def review_params
-    params.require(:review).permit(:title, :description)
+    params.require(:review).permit(:title, :description, :evaluation, :image, :shop_id, :user_id)
   end
 end
