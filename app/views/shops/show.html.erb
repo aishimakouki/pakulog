@@ -55,25 +55,11 @@
           <%= image_tag review.image, class: "img-responsive img-thumbnail" %>
           <!-- reviewsのevaluation -->
           <%= evaluation_star(review.evaluation) %>
-
-
-
-
-          <!-- <div class="col-md-4">
-            <%#= image_tag shop.image, class: "img-responsive img-thumbnail" %>
-          </div>
-          <div class="col-md-8">
-            <h2><%#= link_to shop.name, shop_path(shop) %></h2>
-            <div class="shops-index-description">
-              <div>詳細: <%#= truncate(shop.description, length: 50) %></div>
-              <div>評価: <%#= shop.review_avg %></div>
-              <div>予算: <%#= shop.budget_min %> 〜 <%#= shop.budget_max %> (円)</div>
-              <div>ジャンル: <%#= shop.genre.name %></div>
-              <div>エリア: <%#= shop.area.name %></div>
-            </div>
-          </div> -->
         </div>
       </div>
     <% end %>
+    <div class="text-center">
+      <%= paginate @reviews %>
+    </div>
   </div>
 </div>
