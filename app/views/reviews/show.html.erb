@@ -6,12 +6,13 @@
       <dd style="margin:0px 0px 10px 20px"><%= @shop.name%></dd>
       <dt>タイトル</dt>
       <dd style="margin:0px 0px 10px 20px"><%= @review.title %></dd>
+      <dt>詳細</dt>
+      <dd style="margin:0px 0px 10px 20px"><%= simple_format(@review.description) %></dd>
       <dt>レビュー</dt>
       <dd style="margin:0px 0px 10px 20px"><%= @review.evaluation %></dd>
       <dt>画像</dt>
       <dd style="margin:0px 0px 10px 20px"><%= image_tag @shop.image %></dd>
     </dl>
     <%= link_to '戻る', top_shops_path, class: "btn btn-default" %>
-
   </div>
 </div>

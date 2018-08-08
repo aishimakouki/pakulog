@@ -21,15 +21,59 @@
     </dl>
     <%= link_to '編集', edit_shop_path(@shop), class: "btn btn-default" %>
     <%= link_to '戻る', top_shops_path, class: "btn btn-default" %>
-
   </div>
 </div>
+
 <div class="row">
   <div class="text-right">
     <%= link_to "口コミ投稿", new_shop_review_path(@shop), class: "btn btn-warning" %>
   </div>
+</div>
 
-  <div class="text-right">
-    <%= link_to "口コミ一覧", new_shop_review_path(@shop), class: "btn btn-warning" %>
+<div class="row">
+  <div class="col-md-12">
+    <h2>口コミ一覧</h2>
+    <% @reviews.each do |review| %>
+      <hr>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <!-- reviewに紐づくuser 画像 -->
+          <% if review.user.image.present? %>
+            <%= image_tag review.user.image, class: "user_icon" %>
+          <% else %>
+            <%= image_tag "default_user.png", class: "user_icon" %>
+          <% end %>
+          <!-- reviewsに紐づくuserの名前 -->
+          <%= review.user.nick_name %>
+          <!-- reviewsのtitle -->
+          <%= link_to review.title, shop_review_path(@shop,review) %>
+          <!-- reviewsのdescription -->
+          <%= truncate(review.description, length: 50) %>
+          <%= link_to "もっと見る", shop_review_path(@shop,review), class: "btn btn-warning"%>
+          <!-- reviewsのimage -->
+          <%= image_tag review.image, class: "img-responsive img-thumbnail" %>
+          <!-- reviewsのevaluation -->
+          <%= evaluation_star(review.evaluation) %>
+
+
+
+
+          <!-- <div class="col-md-4">
+            <%#= image_tag shop.image, class: "img-responsive img-thumbnail" %>
+          </div>
+          <div class="col-md-8">
+            <h2><%#= link_to shop.name, shop_path(shop) %></h2>
+            <div class="shops-index-description">
+              <div>詳細: <%#= truncate(shop.description, length: 50) %></div>
+              <div>評価: <%#= shop.review_avg %></div>
+              <div>予算: <%#= shop.budget_min %> 〜 <%#= shop.budget_max %> (円)</div>
+              <div>ジャンル: <%#= shop.genre.name %></div>
+              <div>エリア: <%#= shop.area.name %></div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
