@@ -14,5 +14,9 @@
       <dd style="margin:0px 0px 10px 20px"><%= image_tag @shop.image %></dd>
     </dl>
     <%= link_to '戻る', top_shops_path, class: "btn btn-default" %>
+
+    <% if @review.user_id == current_user.id %>
+      <%= link_to '編集', edit_shop_review_path(@shop, @review), class: "btn btn-default" %>
+    <% end %>
   </div>
 </div>

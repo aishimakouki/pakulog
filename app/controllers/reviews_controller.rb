@@ -20,6 +20,11 @@ class ReviewsController < ApplicationController
     @shop = @review.shop
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  　@shop =@review.shop
+  end
+
 
 
 private
