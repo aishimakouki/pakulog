@@ -20,6 +20,21 @@ class ReviewsController < ApplicationController
     @shop = @review.shop
   end
 
+  def edit
+    @review = Review.find(params[:id])
+    @shop = @review.shop
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to [@review.shop, @review]
+    else
+      @shop = @review.shop
+      render :edit
+    end
+  end
+
 
 
 private

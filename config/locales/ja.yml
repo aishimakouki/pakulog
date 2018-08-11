@@ -14,7 +14,11 @@ ja:
         area_id: "エリア"
         user_id: "ユーザー"
         review_avg: "レビュー平均"
-
+      review:
+        title: "タイトル"
+        description: "詳細"
+        evaluation: "評価"
+        image: "画像"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
