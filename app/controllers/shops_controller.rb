@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   def top
      @q = Shop.ransack(params[:q])
      @shops = @q.result.page(params[:page])
-     @reviews = Review.all
+     @reviews = Review.find_new_review
   end
 
   def new
