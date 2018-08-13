@@ -33,4 +33,14 @@
       </div>
     </div>
   </div>
-</div
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>新着口コミ</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'reviews/list', locals: { reviews: @reviews } %>
+  </div>
+</div>
