@@ -47,10 +47,10 @@
           <!-- reviewsに紐づくuserの名前 -->
           <%= review.user.nick_name %>
           <!-- reviewsのtitle -->
-          <%= link_to review.title, shop_review_path(@shop,review) %>
+          <%= link_to review.title, shop_review_path(@shop, review) %>
           <!-- reviewsのdescription -->
           <%= truncate(review.description, length: 50) %>
-          <%= link_to "もっと見る", shop_review_path(@shop,review), class: "btn btn-warning"%>
+          <%= link_to "もっと見る", shop_review_path(@shop, review), class: "btn btn-warning"%>
           <!-- reviewsのimage -->
           <%= image_tag review.image, class: "img-responsive img-thumbnail" %>
           <!-- reviewsのevaluation -->
