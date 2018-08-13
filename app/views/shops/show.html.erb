@@ -33,31 +33,7 @@
 <div class="row">
   <div class="col-md-12">
     <h2>口コミ一覧</h2>
-    <% @reviews.each do |review| %>
-      <hr>
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-
-          <!-- reviewに紐づくuser 画像 -->
-          <% if review.user.image.present? %>
-            <%= image_tag review.user.image, class: "user_icon" %>
-          <% else %>
-            <%= image_tag "default_user.png", class: "user_icon" %>
-          <% end %>
-          <!-- reviewsに紐づくuserの名前 -->
-          <%= review.user.nick_name %>
-          <!-- reviewsのtitle -->
-          <%= link_to review.title, shop_review_path(review.shop, review) %>
-          <!-- reviewsのdescription -->
-          <%= truncate(review.description, length: 50) %>
-          <%= link_to "もっと見る", shop_review_path(review.shop, review), class: "btn btn-warning"%>
-          <!-- reviewsのimage -->
-          <%= image_tag review.image, class: "img-responsive img-thumbnail" %>
-          <!-- reviewsのevaluation -->
-          <%= evaluation_star(review.evaluation) %>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: 'reviews/list', locals: { reviews: @reviews } %>
     <div class="text-center">
       <%= paginate @reviews %>
     </div>
